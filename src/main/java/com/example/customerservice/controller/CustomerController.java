@@ -20,6 +20,10 @@ public class CustomerController {
     public List<Customer> getCustomers() {
         return this.repository.findAll();
     }
+    @RequestMapping("/")
+    public String home() {
+        return "Welcome to the Customer Service application!";
+    }
 
     @GetMapping("/customers/{id}")
     public Customer getCustomerById(@PathVariable Long id) {
