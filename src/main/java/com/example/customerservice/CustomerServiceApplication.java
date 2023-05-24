@@ -13,13 +13,4 @@ public class CustomerServiceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CustomerServiceApplication.class, args);
 	}
-
-	@Bean
-	public CommandLineRunner demo(CustomerRepository repository) {
-		return (args) -> {
-			// save a few customers
-			repository.save(new Customer("John Doe", "123456789"));
-			repository.save(new Customer("Jane Doe", "987654321"));
-		};
-	}
 }
