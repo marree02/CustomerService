@@ -3,11 +3,13 @@ package com.example.customerservice.controller;
 
 import com.example.customerservice.models.Customer;
 import com.example.customerservice.repositories.CustomerRepository;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@Tag(name = "CustomerController", description = "Endpoints for getting all customers")
 public class CustomerController {
 
     private final CustomerRepository repository;
