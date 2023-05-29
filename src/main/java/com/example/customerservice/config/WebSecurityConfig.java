@@ -31,10 +31,10 @@ public class WebSecurityConfig {
             throws Exception {
         http.authorizeHttpRequests((requests) -> requests
                         .dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.ERROR).permitAll()
-                        .requestMatchers("/", "/public").permitAll()
+                        .requestMatchers("/swagger-ui.html", "/swagger-ui/", "/v3/api-docs/").permitAll()
                         .requestMatchers("/customers/**").hasRole("USER"))
                 .formLogin(Customizer.withDefaults());
-        http.csrf().disable().cors().disable();
+        http.cors(Customizer.withDefaults()).csrf(Customizer.withDefaults());
         return http.build();
     }
 
