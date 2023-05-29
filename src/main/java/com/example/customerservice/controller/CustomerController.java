@@ -4,6 +4,8 @@ package com.example.customerservice.controller;
 import com.example.customerservice.models.Customer;
 import com.example.customerservice.repositories.CustomerRepository;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,6 +24,7 @@ public class CustomerController {
     public List<Customer> getCustomers() {
         return this.repository.findAll();
     }
+
     @GetMapping("/customers/{id}")
     public Customer getCustomerById(@PathVariable Long id) {
         return this.repository.findById(id).orElse(null);

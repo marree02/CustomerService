@@ -19,9 +19,6 @@ public class Customer {
 
     private String ssn;
 
-  //  @OneToMany
-  //  private List<ShopOrder> shopOrders;
-
     public Customer() {
     }
 
@@ -55,14 +52,6 @@ public class Customer {
         this.ssn = ssn;
     }
 
-    /*public List<ShopOrder> getShopOrders() {
-        return shopOrders;
-    }
-
-    public void setShopOrders(List<ShopOrder> shopOrders) {
-        this.shopOrders = shopOrders;
-    }
-*/
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
