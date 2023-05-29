@@ -1,17 +1,17 @@
 package com.example.customerservice.controller;
 
-
 import com.example.customerservice.models.Customer;
 import com.example.customerservice.repositories.CustomerRepository;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
 @Tag(name = "CustomerController", description = "Endpoints for getting all customers")
+@Validated
 public class CustomerController {
 
     private final CustomerRepository repository;
@@ -31,8 +31,13 @@ public class CustomerController {
     }
 
     @PostMapping("/customers")
-    public String createCustomer(@RequestBody Customer customer) {
+    public String createCustomer(@RequestBody @Valid Customer customer) {
         this.repository.save(customer);
         return "Customer " + customer.getName() + " created";
     }
+    @GetMapping("/testAdvice")
+    public String testAdvice() {
+        throw new NullPointerException("This is a test NullPointerException.");
+    }
+
 }

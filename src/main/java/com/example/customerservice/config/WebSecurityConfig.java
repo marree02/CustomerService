@@ -31,7 +31,7 @@ public class WebSecurityConfig {
             throws Exception {
         http.authorizeHttpRequests((requests) -> requests
                         .dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.ERROR).permitAll()
-                        .requestMatchers("/swagger-ui.html", "/swagger-ui/", "/v3/api-docs/").permitAll()
+                        .requestMatchers("/swagger-ui.html", "/swagger-ui/", "/v3/api-docs/","/testAdvice").permitAll()
                         .requestMatchers("/customers/**").hasRole("USER"))
                 .formLogin(Customizer.withDefaults());
         http.cors(Customizer.withDefaults()).csrf(Customizer.withDefaults());
