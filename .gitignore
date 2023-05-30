@@ -1,36 +1,12 @@
-# IntelliJ IDEA
 .idea/
-
-# Gradle
 .gradle/
 build/
-
-# macOS
 .DS_Store
-
-# System files
-Thumbs.db
-ehthumbs.db
-.DS_Store
-Icon?
-*~
-
-# Logs
 *.log
-
-# Compiled binaries
 *.class
-
-# Package Files
 *.jar
 *.war
 *.ear
-
-# Maven
 target/
-
-# Eclipse
 .metadata/
-
-# Visual Studio Code
 .vscode/
