@@ -3,9 +3,9 @@ package com.example.customerservice.models;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 import java.util.Objects;
 
 @Entity
@@ -26,10 +26,36 @@ public class Customer {
     public Customer() {
     }
 
+    public Customer(String name, String ssn) {
+        this.name = name;
+        this.ssn = ssn;
+     //   this.shopOrders = shopOrders;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSsn() {
+        return ssn;
+    }
+
+    public void setSsn(String ssn) {
+        this.ssn = ssn;
+    }
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

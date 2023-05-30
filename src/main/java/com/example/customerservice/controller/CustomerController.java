@@ -35,9 +35,5 @@ public class CustomerController {
         this.repository.save(customer);
         return "Customer " + customer.getName() + " created";
     }
-    @GetMapping("/testAdvice")
-    public String testAdvice() {
-        throw new NullPointerException("This is a test NullPointerException.");
-    }
 
 }

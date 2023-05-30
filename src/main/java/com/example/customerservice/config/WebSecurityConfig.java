@@ -1,5 +1,6 @@
 package com.example.customerservice.config;
 
+import jakarta.servlet.DispatcherType;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -12,7 +13,6 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
-import jakarta.servlet.DispatcherType;
 
 
 @Configuration
@@ -31,7 +31,7 @@ public class WebSecurityConfig {
             throws Exception {
         http.authorizeHttpRequests((requests) -> requests
                         .dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.ERROR).permitAll()
-                        .requestMatchers("/swagger-ui.html", "/swagger-ui/", "/v3/api-docs/","/testAdvice").permitAll()
+                        .requestMatchers("/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
                         .requestMatchers("/customers/**").hasRole("USER"))
                 .formLogin(Customizer.withDefaults());
         http.cors(Customizer.withDefaults()).csrf(Customizer.withDefaults());

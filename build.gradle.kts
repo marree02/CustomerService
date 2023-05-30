@@ -5,6 +5,9 @@ plugins {
 	id("org.springdoc.openapi-gradle-plugin") version "1.6.0"
 
 }
+java {
+	sourceCompatibility = JavaVersion.VERSION_17
+}
 
 group = "com.example"
 version = "0.0.1-SNAPSHOT"
