@@ -1,5 +1,14 @@
-Dockerfile
+# Docker Compose
 docker-compose.yml
-.gitignore
-.idea
+
+# Dockerfile
+Dockerfile
+
+# Build context
+.build/
+
+# Ignore all files in .git folder
 .git
+
+# Ignore .dockerignore itself
+.dockerignore
